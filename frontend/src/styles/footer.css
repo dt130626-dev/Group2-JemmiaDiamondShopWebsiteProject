@@ -1,0 +1,50 @@
+.footer{
+  margin-top:50px;
+  padding:40px 60px;
+  background:white;
+  color:black;
+  border-top:1px solid black;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.footer-col{
+  flex:1;
+}
+
+.footer-col h3{
+  margin-bottom:15px;
+  color:#40E0D0;
+}
+
+.footer-col p{
+  margin:6px 0;
+  color:black;
+  font-size:14px;
+}
+
+.footer-col p:hover{
+  color:#40E0D0;
+  cursor:pointer;
+}
+
+.social{
+  display:flex;
+  gap:15px;
+  margin-top:10px;
+}
+
+.social i{
+  font-size:20px;
+  color:black;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.social i:hover{
+  color:#40E0D0;
+}

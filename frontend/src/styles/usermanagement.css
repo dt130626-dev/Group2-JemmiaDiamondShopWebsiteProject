@@ -1,0 +1,295 @@
+* { box-sizing: border-box; }
+
+.um-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 40px 80px 80px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+.um-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.um-title {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.btn-add-user {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.btn-add-user:hover { background: #b8962e; }
+
+/* THÔNG BÁO */
+.um-success {
+  background: #e6f9f5;
+  color: #27ae60;
+  border: 1px solid #27ae60;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.um-error {
+  background: #fdf0f0;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.um-form {
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.um-form h3 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+.um-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafaf8;
+  color: #1a1a1a;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #b8962e;
+}
+
+.um-form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-save {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.btn-save:hover { background: #b8962e; }
+
+.btn-cancel {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 12px 24px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #aaa;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover { border-color: #e74c3c; color: #e74c3c; }
+
+/* BẢNG */
+.um-table-wrap {
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.um-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.um-table th {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 14px 16px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 500;
+}
+
+.um-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.um-table tr:last-child td { border-bottom: none; }
+
+.um-table tr:hover td { background: #fafaf8; }
+
+/* ROLE BADGE */
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.role-badge.admin {
+  background: #fff8e6;
+  color: #b8962e;
+  border: 1px solid #b8962e;
+}
+
+.role-badge.user {
+  background: #f0f0f0;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+/* ACTION BUTTONS */
+.action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit {
+  background: none;
+  border: 1px solid #b8962e;
+  color: #b8962e;
+  padding: 6px 14px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-edit:hover { background: #b8962e; color: #fff; }
+
+.btn-delete {
+  background: none;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 6px 14px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-delete:hover { background: #e74c3c; color: #fff; }
+
+.um-count {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+.um-count strong { color: #b8962e; }
+
+.um-loading {
+  text-align: center;
+  padding: 100px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .um-form-grid { grid-template-columns: 1fr; }
+  .um-container { padding: 20px; }
+}
+
+
+.table-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+}
+
+.image-preview {
+  margin-bottom: 20px;
+}
+
+.preview-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.image-preview img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+}
+
+.admin-menu {
+  display: flex;
+  gap: 10px;
+}
