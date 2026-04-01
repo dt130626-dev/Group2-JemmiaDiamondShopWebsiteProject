@@ -31,28 +31,34 @@ function Cart() {
   };
 
 
-const updateQuantity = async (item, newQuantity) => {
-  if (newQuantity < 1) return;
+  const updateQuantity = async (item, newQuantity) => {
+    if (newQuantity < 1) return;
 
-  const stock = item.product?.countInStock || 0;
-  
-  if (newQuantity > stock) {
-    setErrorId(item._id); 
-    setTimeout(() => setErrorId(null), 3000);
-    return;
-  }
-  setErrorId(null);
-  try {
-    const res = await fetch(`http://localhost:5000/api/cart/${item._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ quantity: newQuantity })
-    });
-    const data = await res.json();
-    setCart(data.cart);
-    fetchCartCount();
-  } catch (error) { console.log(error); }
-};
+    try {
+      const res = await fetch(`http://localhost:5000/api/cart/${item._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ quantity: newQuantity })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+
+        setErrorId(item._id);
+        setTimeout(() => setErrorId(null), 3000);
+        return;
+      }
+
+      setCart(data.cart);
+      fetchCartCount();
+    } catch (error) {
+      console.log("Lỗi cập nhật:", error);
+    }
+  };
 
   const removeItem = async (itemId) => {
     try {
@@ -105,13 +111,22 @@ const updateQuantity = async (item, newQuantity) => {
                     <p className="item-price">{item.price.toLocaleString()} đ</p>
                   </div>
                   <div className="item-quantity">
-                   <button onClick={() => updateQuantity(item, item.quantity - 1)}>−</button>
-                     <span>{item.quantity}</span>
-                     <button onClick={() => updateQuantity(item, item.quantity + 1)}>+</button>
+                    <button onClick={() => updateQuantity(item, item.quantity - 1)}>−</button>
+
+                    <span>{item.quantity}</span>
+
+                    <button
+                      onClick={() => updateQuantity(item, item.quantity + 1)}
+                      
+                      disabled={item.quantity >= item.product?.countInStock}
+                      className={item.quantity >= item.product?.countInStock ? "btn-disabled" : ""}
+                    >
+                      +
+                    </button>
                   </div>
                   {errorId === item._id && (
                     <p style={{ color: 'red', fontSize: '12px', marginTop: '5px' }}>
-                        Chỉ còn {item.product?.countInStock} sản phẩm
+                      Chỉ còn {item.product?.countInStock} sản phẩm
                     </p>
                   )}
                   <p className="item-subtotal">{(item.price * item.quantity).toLocaleString()} đ</p>

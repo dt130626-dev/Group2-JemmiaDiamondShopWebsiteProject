@@ -20,7 +20,72 @@
 
   text-align:center;
 }
+/* login.css */
 
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5; /* Nền xám nhạt toàn trang */
+}
+
+.login-form {
+  width: 380px;
+  background: white; /* Nền form trắng */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd; /* Viền xám nhạt cho tinh tế */
+  border-radius: 6px;
+  
+  /* QUAN TRỌNG: Sửa lại màu ở đây */
+  background-color: #ffffff; /* Nền ô input trắng */
+  color: #333333;           /* Chữ màu đen xám dễ đọc */
+  
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.login-form input:focus {
+  border-color: #40E0D0; /* Màu xanh ngọc khi click vào */
+  outline: none;
+  box-shadow: 0 0 5px rgba(64,224,208,0.3);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #40E0D0;
+  color: #000; /* Chữ đen trên nền xanh ngọc */
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background: #2ec4b6;
+}
+
+/* Thêm CSS cho thông báo thành công */
+.success-msg {
+  color: #28a745;
+  background: #e7f4e9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
 
 .login-form h2{
   margin-bottom:25px;
@@ -38,10 +103,10 @@
 
   margin-bottom:15px;
 
-  border:1px solid #ddd;
+  border:1px solid #0f0f0f;
 
   border-radius:6px;
-
+  color: white;
   font-size:14px;
 
   transition:0.3s;

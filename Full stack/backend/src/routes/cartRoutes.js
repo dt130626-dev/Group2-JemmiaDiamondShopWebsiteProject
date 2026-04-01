@@ -3,7 +3,7 @@ import { getCart, addToCart, updateCartItem, removeFromCart, clearCart } from ".
 import { protect } from "../middlewares/authMiddleware.js";
 const cartRouter = express.Router();
 cartRouter.use(protect);
-cartRouter.get("/",           getCart);
+cartRouter.get("/", protect,         getCart);
 cartRouter.post("/",          addToCart);
 cartRouter.put("/:itemId",    updateCartItem);
 cartRouter.delete("/clear",   clearCart);

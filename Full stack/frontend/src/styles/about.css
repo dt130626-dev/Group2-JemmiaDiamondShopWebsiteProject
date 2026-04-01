@@ -1,37 +1,29 @@
 .about{
   padding:80px 100px;
+    background: #ffffff;
 }
-
 .about-title{
   text-align:center;
   font-size:32px;
   margin-bottom:50px;
+  color: black;
 }
-
-
-
 .about-container{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
   align-items:center;
 }
-
-
-
 .about-image img{
   width:100%;
   border-radius:8px;
 }
-
-
 
 .about-text h3{
   font-size:24px;
   color:#40E0D0;
   margin-bottom:20px;
 }
-
 .about-text p{
   margin-bottom:15px;
   line-height:1.7;

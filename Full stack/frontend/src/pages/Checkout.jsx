@@ -105,6 +105,16 @@ function Checkout() {
             phone: form.phone,
             address: fullAddress
           },
+          userDetails: {
+          name: form.fullName,
+          phone: form.phone,
+          address: {
+            street: form.street,
+            ward: form.ward,
+            district: form.district,
+            city: form.city
+          }
+        },
           paymentMethod,
           note: form.note
         })

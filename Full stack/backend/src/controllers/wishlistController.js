@@ -1,9 +1,9 @@
-import User from "../models/User.js";
+import * as wishlistService from "../services/wishlistService.js";
 
 export const getWishlist = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id).populate("wishlist");
-    res.json({ success: true, wishlist: user.wishlist });
+    const wishlist = await wishlistService.fetchWishlist(req.user._id);
+    res.json({ success: true, wishlist });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -12,14 +12,17 @@ export const getWishlist = async (req, res) => {
 export const addToWishlist = async (req, res) => {
   try {
     const { productId } = req.body;
-    const user = await User.findById(req.user._id);
-    if (user.wishlist.includes(productId)) {
-      return res.json({ success: true, message: "Đã có trong wishlist", wishlist: user.wishlist });
+    const result = await wishlistService.addProductToWishlist(req.user._id, productId);
+    
+    if (result.alreadyIn) {
+      return res.json({ 
+        success: true, 
+        message: "Đã có trong wishlist", 
+        wishlist: result.wishlist 
+      });
     }
-    user.wishlist.push(productId);
-    await user.save();
-    await user.populate("wishlist");
-    res.json({ success: true, wishlist: user.wishlist });
+
+    res.json({ success: true, wishlist: result.wishlist });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -27,13 +30,11 @@ export const addToWishlist = async (req, res) => {
 
 export const removeFromWishlist = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
-    user.wishlist = user.wishlist.filter(
-      (id) => id.toString() !== req.params.productId
+    const wishlist = await wishlistService.removeProductFromWishlist(
+      req.user._id, 
+      req.params.productId
     );
-    await user.save();
-    await user.populate("wishlist");
-    res.json({ success: true, wishlist: user.wishlist });
+    res.json({ success: true, wishlist });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

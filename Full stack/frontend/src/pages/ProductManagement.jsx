@@ -51,6 +51,10 @@ function ProductManagement() {
     if (!form.name || !form.price || !form.description || !form.category || !form.image) {
       setError("Vui lòng điền đầy đủ thông tin"); return;
     }
+    if (Number(form.countInStock) < 0) {
+      setError("Số lượng tồn kho không được nhỏ hơn 0");
+      return;
+    }
     try {
       const url = editProduct
         ? `http://localhost:5000/api/products/${editProduct._id}`
